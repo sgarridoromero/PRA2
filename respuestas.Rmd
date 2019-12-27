@@ -1,0 +1,52 @@
+---
+title: 'Tipologia y ciclo de vida de los datos: Práctica 2'
+author: "Autor: Sandra Garrido Romero"
+date: "Diciembre 2019"
+
+output:
+  html_document:
+    highlight: default
+    number_sections: yes
+    theme: cosmo
+    toc: yes
+    toc_depth: 2
+  pdf_document:
+    highlight: zenburn
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Resolución
+## Descripción del dataset
+
+El conjunto de datos a utilizar se ha descargado desde este enlace https://www.kaggle.com/c/titanic/data de la página web de _Kaggle_. Este dataset se conforma de 12 variables (columnas) y 1309 pasajeros (filas). El conjunto de datos se ha conseguido uniendo los conjuntos de entrenamiento y test. Los campos del conjunto de datos son los siguientes:
+
+* __PassengerId__: Identificador de cada uno de los pasajeros.
+* __Survived__: Indica si el pasajero sobrevivió (1) o no (0). 
+* __Pclass__: Clase que figuraba en el ticket: primera clase (1), segunda clase (2) o tercera clase (3).
+* __Name__ : Nombre del pasajero.
+* __Sex__ : Sexo del pasajero (male, female).
+* __Age__ : Edad del pasajero.
+* __SibSp__ : Relaciones familiares del siguiente tipo: hermanos, hermanastros, esposos o esposas.
+* __Parch__ : Relaciones familiares del siguiente tipo: madre, padre, hijos o hijastros.
+* __Ticket__ : Número de ticket.
+* __Fare__ : Precio del ticket.
+* __Cabin__ : Número de cabina.
+* __Embarked__ : Puerto de embarque: Cherbourg (C), Queenstown (Q) o Southampton (S).
+
+## Importancia y objetivos de los análisis
+
+Este conjunto de datos puede ayudar a resolver qué variables son las que influyen en si un pasajero sobrevivió al hundimiento del Titanic o no.
+
+```{r}
+test <- read.csv('test.csv',stringsAsFactors = FALSE)
+train <- read.csv('train.csv',stringsAsFactors = FALSE)
+library(dplyr)
+totalData <- bind_rows(train,test)
+filas=dim(train)[1]
+
+```
+## Importancia y objetivos del análisis
